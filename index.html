@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <main class="main">
+            <div class="main__logo"><img src="images/logo_picom.PNG" alt="Picom" class="main__logo-img"></div>
+            <form class="main__form">
+                <div class="form__wraper">
+                    <h1>
+                        Создать учетную запись
+                    </h1>
+                    <p class="text">
+                        Уже есть учетная запись? <span><a href="#" class="form__link">Войти</a></span>
+                    </p>
+                    <section class="form__input__section2">
+                        <input type="text" id="name" class="form__input__section2__input" required>
+                        <label for="name">Имя*</label>
+                   </section>
+                   <section class="form__input__section2">
+                        <input type="text" id="email" class="form__input__section2__input" required>
+                        <label for="email">E-mail*</label>
+                    </section>  
+                    <section class="form__input__section2">
+                        <input type="text" id="password" class="form__input__section2__input" required>
+                        <label for="password">Пароль*</label>
+                    </section>
+                    <div class="input__section__footer">
+                        <label class="check">
+                            <input type="checkbox" class="check__input"  required>
+                            <span class="check__box"></span>
+                        </label>
+                             <p class="input__section__footer-label">Я даю согласие на обработку персональных</br> данных, указанных
+                            в условиях <a href="#" >Пользовательского соглашения</a></p>
+                    </div>
+                        <div class="input__separator__footer"></div>
+                    <div class="secondWraper">
+                        <button class="button" id="secretButton" >Создать учетную запись</button>
+                    </div>
+                    </div>
+                </div>
+            </form>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+    document.getElementById('secretButton').disabled = "true";
+        });     
+    var $input = $('input:text'),
+    $register = $('#secretButton');
+    $register.attr('disabled', true);
+    $input.keyup(function() {
+    var trigger = false;
+    $input.each(function() {
+        if (!$(this).val()) {
+            trigger = true;
+        }
+    });
+    trigger ? $register.attr('disabled', true) : $register.removeAttr('disabled');
+});
+
+    </script>
+</body>
+
+</html>
